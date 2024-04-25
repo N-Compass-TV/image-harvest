@@ -103,7 +103,6 @@ def scrape_instagram(url, max_images):
         print("The Account is Public. Proceeding..")
         pass
     
-    
     # Check how many post the user has
     try:
         total_posts = driver.find_elements(By.XPATH, "/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/section[1]/main[1]/div[1]/header[1]/section[1]/ul[1]/li[1]/span[1]/span[1]")
@@ -158,7 +157,6 @@ def scrape_instagram(url, max_images):
             print("Scraping: " + str(len(image_urls)) + " images...") 
             break
 
-        
     download_image(image_urls, filepath, max_images)
 
 
@@ -189,10 +187,13 @@ def scrape_facebook(url, max_images):
     time.sleep(1.5)
 
     # Get the Image URLS
-    image_urls = set()
+    image_urls = list()
     print("Preparing to extract images...")
     height = 0
-    while True:
+    count = 0
+    thumbnails_old_count = 0
+    is_iterate = True
+    while is_iterate:
         height+=1 
 
         driver.execute_script('scrollBy(0,300)')
@@ -210,30 +211,42 @@ def scrape_facebook(url, max_images):
             download_image(image_urls, filepath, max_images)
 
         # thumbnail
-        thumbnails = driver.find_elements(By.XPATH, "//img[@class='xzg4506 xycxndf xua58t2 x4xrfw5 x1lq5wgf xgqcy7u x30kzoy x9jhf4c x9f619 x5yr21d xl1xv1r xh8yej3']")
+        thumbnails = driver.find_elements(By.XPATH, "//a[@class='x1i10hfl xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1heor9g xt0b8zv x1lliihq x5yr21d x1n2onr6 xh8yej3']")
+        print("count of thumbnails: " + str(len(thumbnails)))
         photos = thumbnails
         if len(thumbnails) == 0:
             album = driver.find_elements(By.XPATH, "//div[@class='xzg4506 xycxndf xua58t2 x4xrfw5 x1ey2m1c x9f619 xds687c x10l6tqk x17qophe x13vifvy']")
             photos = album    
 
-        for pic in photos[len(image_urls):max_images]:
-            try:
-                pic.click()
-                time.sleep(1)    
-                images = driver.find_elements(By.XPATH, "//img[@class='x1bwycvy x193iq5w x4fas0m x19kjcj4']")
+        print(len(photos))
+        if len(photos) > thumbnails_old_count:
+            for pic in photos[len(image_urls):max_images]:
+                try:
+                    pic.click()
+                    count +=1
+                    print(count)
+                    time.sleep(1) 
+                    
+                    images = driver.find_elements(By.XPATH, "//img[@class='x1bwycvy x193iq5w x4fas0m x19kjcj4']")
 
-                for img in images:
-                    if img.get_attribute('src') and 'https' in img.get_attribute('src'):
-                        image_urls.add(img.get_attribute('src'))
-                
-                time.sleep(0.2)
-                driver.find_element(By.XPATH, "//div[@aria-label='Close']").click()
-                time.sleep(1.5)
-            except:
-                continue 
+                    for img in images:
+                        if img.get_attribute('src') and 'https' in img.get_attribute('src'):
+                            image_urls.append(img.get_attribute('src'))
+
+                    
+                    time.sleep(0.2)
+                    driver.find_element(By.XPATH, "//div[@aria-label='Close']").click()
+                    time.sleep(1.5)
+                except:
+                    continue
+        else:
+            break
+        
+        thumbnails_old_count = len(thumbnails)
+
 
         if len(photos) > max_images:
-            break
+            is_iterate = False
 
     download_image(image_urls, filepath, max_images)
 
