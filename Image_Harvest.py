@@ -1,6 +1,7 @@
 import os
 import time
 import requests
+import credentials
 from sys import exit
 from tqdm import tqdm
 from time import sleep
@@ -59,9 +60,9 @@ def scrape_instagram(url, max_images):
     if not os.path.exists(filepath):
         os.mkdir(filepath)
 
-    # IG Credential
-    username = "fratzworkantigua@gmail.com"
-    password = "Ncompass123"
+    # # IG Credential
+    # username = "fratzworkantigua@gmail.com"
+    # password = "Ncompass123"
 
     # Automate Login
     driver = webdriver.Chrome(options=chrome_options, service=ChromeService(ChromeDriverManager().install()))
@@ -69,8 +70,8 @@ def scrape_instagram(url, max_images):
     driver.get(url_ig_login)
     time.sleep(1.5)
 
-    user = driver.find_element(By.XPATH, ("//input[@name='username']")).send_keys(username)
-    pw = driver.find_element(By.XPATH, ("//input[@name='password']")).send_keys(password)
+    user = driver.find_element(By.XPATH, ("//input[@name='username']")).send_keys(credentials.LOGIN_IG_USER)
+    pw = driver.find_element(By.XPATH, ("//input[@name='password']")).send_keys(credentials.LOGIN_IG_PASSWORD)
 
     login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
     login_button.click()
@@ -169,16 +170,16 @@ def scrape_facebook(url, max_images):
 
     print("Checking Facebook Photo Content...")
 
-    # FB Credential
-    username = "fratzworkantigua@gmail.com"
-    password = "Ncompass123"
+    # # FB Credential
+    # username = "fratzworkantigua@gmail.com"
+    # password = "Ncompass123"
 
     # Automate Login
     driver = webdriver.Chrome(options=chrome_options, service=ChromeService(ChromeDriverManager().install()))
     url_fb_login = 'https://www.facebook.com/'
     driver.get(url_fb_login)
-    driver.find_element("id", "email").send_keys(username)
-    driver.find_element("id", "pass").send_keys(password)
+    driver.find_element("id", "email").send_keys(credentials.LOGIN_FB_USER)
+    driver.find_element("id", "pass").send_keys(credentials.LOGIN_FB_PASSWORD)
     driver.find_element("name", "login").click()
     time.sleep(1)
 
@@ -212,19 +213,17 @@ def scrape_facebook(url, max_images):
 
         # thumbnail
         thumbnails = driver.find_elements(By.XPATH, "//a[@class='x1i10hfl xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1heor9g xt0b8zv x1lliihq x5yr21d x1n2onr6 xh8yej3']")
-        print("count of thumbnails: " + str(len(thumbnails)))
+        
         photos = thumbnails
         if len(thumbnails) == 0:
             album = driver.find_elements(By.XPATH, "//div[@class='xzg4506 xycxndf xua58t2 x4xrfw5 x1ey2m1c x9f619 xds687c x10l6tqk x17qophe x13vifvy']")
             photos = album    
 
-        print(len(photos))
         if len(photos) > thumbnails_old_count:
             for pic in photos[len(image_urls):max_images]:
                 try:
                     pic.click()
                     count +=1
-                    print(count)
                     time.sleep(1) 
                     
                     images = driver.find_elements(By.XPATH, "//img[@class='x1bwycvy x193iq5w x4fas0m x19kjcj4']")
