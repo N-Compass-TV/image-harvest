@@ -20,7 +20,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 # Initialize Chrome WebDriver with options
 chrome_options = webdriver.ChromeOptions()
 # Enables headless mode, which runs Chrome without a graphical user interface
-chrome_options.add_argument("--headless")
+# chrome_options.add_argument("--headless")
 # Disables GPU hardware acceleration, which can improve performance in headless mode.
 chrome_options.add_argument("--disable-gpu")
 # Disables notifications
@@ -36,6 +36,11 @@ def user_interaction():
     print("Instagram and Facebook Image Scraper")
     print("Please Enter URL:")
     url = input()
+    
+    if not ".com" in url:
+        print("Please enter a valid URL")
+        exit()
+    
     print("Enter Max Images to download:")
     max_images = input()
     if max_images.isdigit():
@@ -168,11 +173,7 @@ def scrape_facebook(url, max_images):
     if not os.path.exists(filepath):
         os.mkdir(filepath)
 
-    print("Checking Facebook Photo Content...")
-
-    # # FB Credential
-    # username = "fratzworkantigua@gmail.com"
-    # password = "Ncompass123"
+    print("Opening Facebook Content...")
 
     # Automate Login
     driver = webdriver.Chrome(options=chrome_options, service=ChromeService(ChromeDriverManager().install()))
@@ -181,11 +182,24 @@ def scrape_facebook(url, max_images):
     driver.find_element("id", "email").send_keys(credentials.LOGIN_FB_USER)
     driver.find_element("id", "pass").send_keys(credentials.LOGIN_FB_PASSWORD)
     driver.find_element("name", "login").click()
-    time.sleep(1)
+    time.sleep(3)
+
+    # Check if login is successful
+    try:
+        log = driver.find_element(By.XPATH, "//div[@class='_9ay7']")
+        if log:
+            print(log.text)
+            exit()
+    except NoSuchElementException:
+        pass
+    
+
+
 
     # Navigate to inputted URL
     driver.get(url)
     time.sleep(1.5)
+    
 
     # Get the Image URLS
     image_urls = list()
