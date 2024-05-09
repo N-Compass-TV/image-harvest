@@ -1,0 +1,164 @@
+:root {
+    --darkblue: #172b4d;
+    --lightGray: #f4f5f7;
+    --paleGray: #ebecf0;
+    --green: #36b37e;
+    --gray: #ecedf0;
+    --orange: #ff5630;
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    color: var(--darkblue);
+    background-color: #fff;
+    font-size: 1rem;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+
+  button {
+    background: transparent;
+    border: none;
+  }
+
+  .main {
+    padding: 50px 0;
+  }
+
+  .line {
+    border-top: 2px solid var(--gray);
+    height: 10px;
+    margin-block: 20px;
+  }
+
+  .note {
+    font-style: italic;
+    color: var(--orange);
+    font-size: 1rem;
+    padding-block: 10px;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    color: var(--darkblue);
+    font-weight: 400;
+  }
+
+  .createdBy-img {
+    padding-block: 15px;
+    padding-right: 10px;
+  }
+
+  .createdBy-img img {
+    width: 35px;
+    border-radius: 100px;
+  }
+
+  .second-img {
+    margin-left: -10px;
+  }
+
+  .createdBy-text {
+    font-size: 0.75rem;
+    color: #6b778c;
+    font-weight: 400;
+  }
+
+  .step--number-all {
+    font-size: 1.13rem;
+    color: var(--darkblue);
+    line-height: 22px;
+    font-weight: 600;
+  }
+
+  /* Code Design */
+  .code {
+    position: relative;
+    background: var(--lightGray);
+    display: flex;
+    align-items: center;
+    height: 50px;
+    overflow: auto;
+  }
+
+  .nested-code-con {
+    position: relative;
+  }
+
+  .nested-code {
+    background: var(--lightGray);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90px;
+  }
+
+  .nested-code-con:hover .clipboard {
+    display: block;
+  }
+
+  .code:hover .clipboard {
+    display: block;
+  }
+
+  .clipboard:hover {
+    background: rgb(213, 213, 213);
+  }
+
+  .clipboard {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    display: none;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    padding: 2px;
+    transition: 0.4s ease-in;
+  }
+
+  .clipboard img {
+    width: 20px;
+  }
+
+  .code--all {
+    color: var(--darkblue);
+    font-size: 0.8rem;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .code--all span {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    background: var(--paleGray);
+    height: 100%;
+  }
+
+  .code--all p {
+    margin: 0;
+    padding-inline: 10px;
+  }
+
+  /* Images */
+  .img-all {
+    max-width: 370px;
+  }
+
+  code {
+    color: var(--darkblue);
+    font-size: 0.8rem;
+  }
+
+  .title-lh {
+    line-height: 50px;
+  }
