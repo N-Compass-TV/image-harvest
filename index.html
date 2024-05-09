@@ -15,20 +15,20 @@
 </head>
 
 <body>
-    <div class="main container">
-      <div class="row mb-4">
-        <div class="col-12">
-          <h1 class="title">Image Harvest</h1>
-          
-          <div class="createdBy d-flex align-items-center">
-            <div class="createdBy-img">
-              <img src="./assets/dp1.png" alt="DP"/>
-              <img 
-              class="second-img bg-white"
-              src="./assets/logo.png"
-              alt="Ncompass Logo"
-              />
-            </div>
+  <div class="main container">  
+    <div class="row mb-4">  
+      <div class="col-12">  
+        <h1 class="title">Image Harvest</h1>
+  
+        <div class="createdBy d-flex align-items-center">
+          <div class="createdBy-img">
+            <img src="./assets/dp1.png" alt="DP"/>
+            <img 
+            class="second-img bg-white" 
+            src="./assets/logo.png"
+            alt="Ncompass Logo"
+            />  
+          </div>
             
             <div class="createdBy-text">
               <span>Created by Nicole Villamor</span>
@@ -73,12 +73,14 @@
                   <li>Run the installer</li>
                   <img src="./assets/mac.png" alt="pythonInstaller">
                 </ol>
-
+                
                 <br>
                 <li><b>Using Homebrew</b></li>
+                
                 <ol type="1">
                   <li>Go to your terminal</li>
                   <li>Install homebrew by executing this command</li>
+                  
                   <div class="code">
                     <code class="code--all">
                       <span>1</span>
@@ -86,88 +88,91 @@
                         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
                       </p>
                     </code>
-      
+                    
                     <div class="clipboard">
                       <button
-                        class="copy-button"
-                        data-copy-target="#code-snippet-1"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="copy as text"
+                      class="copy-button"
+                      data-copy-target="#code-snippet-1"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      title="copy as text"
                       >
-                        <img src="./assets/copy.png" alt="Copy" />
-                      </button>
-                    </div>
+                      <img src="./assets/copy.png" alt="Copy" />
+                    </button>
                   </div>
+                </div>
+                
+                <br>
+                  
+                <li>Input your password</li>  
+                <li>Execute this command</li>
+                  
+                <div class="code">  
+                  <code class="code--all">
+                    <span>1</span>  
+                    <p class="copy-code" id="code-snippet-2">  
+                      brew install pyenv  
+                    </p>  
+                  </code>
+        
+                  <div class="clipboard">  
+                    <button    
+                    class="copy-button"    
+                    data-copy-target="#code-snippet-2"    
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="copy as text"
+                    >    
+                    <img src="./assets/copy.png" alt="Copy" />    
+                  </button>    
+                </div>    
+              </div>    
+              
+              <img src="./assets/brew install.png" alt="brewInstalling">    
+              <p></p>    
+              <li>Run this command to update python</li>
+                  
+              <div class="code">    
+                <code class="code--all">    
+                  <span>1</span>    
+                  <p class="copy-code" id="code-snippet-3">
+                    pyenv install 3.9.2
+                  </p>
+                </code>
+          
+                <div class="clipboard">    
+                  <button  
+                  class="copy-button"
+                  data-copy-target="#code-snippet-3"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="copy as text"
+                  >
+                  <img src="./assets/copy.png" alt="Copy" />
+                </button>
+              </div>
+            </div>      
+          </ol>      
+        </ol>      
+      </div>      
+    </div>
+        
+    <div class="row mb-4">      
+      <div class="step--number col-12">      
+        <h1 class="title">Image Harvest</h1>      
+        <br>
 
-                  <br>
-                  <li>Input your password</li>
-                  <li>Execute this command</li>
-                  <div class="code">
-                    <code class="code--all">
-                      <span>1</span>
-                      <p class="copy-code" id="code-snippet-2">
-                        brew install pyenv
-                      </p>
-                    </code>
-      
-                    <div class="clipboard">
-                      <button
-                        class="copy-button"
-                        data-copy-target="#code-snippet-2"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="copy as text"
-                      >
-                        <img src="./assets/copy.png" alt="Copy" />
-                      </button>
-                    </div>
-                  </div>
-                  <img src="./assets/brew install.png" alt="brewInstalling">
-                  <p></p>
-                  <li>Run this command to update python</li>
-                  <div class="code">
-                    <code class="code--all">
-                      <span>1</span>
-                      <p class="copy-code" id="code-snippet-3">
-                        pyenv install 3.9.2
-                      </p>
-                    </code>
-      
-                    <div class="clipboard">
-                      <button
-                        class="copy-button"
-                        data-copy-target="#code-snippet-3"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="copy as text"
-                      >
-                        <img src="./assets/copy.png" alt="Copy" />
-                      </button>
-                    </div>
-                  </div>
-
-
-                </ol>
-              </ol>
-
-            </div>
-          </div>
-  
-          <div class="row mb-4">
-            <div class="step--number col-12">
-              <h1 class="title">Image Harvest</h1>
-              <br>
-
-              <ol type="1">
-                <li>Copy the desired URL of the website you need to scrape </li>
-                <li>Go to Image Harvest</li>
-                <li>Enter the URL</li>
-                <li>Enter Max Image to scrape:</li>
-                <li>Wait for the image to be downloaded</li>
-                <li>Images are downloaded into their respective folders</li>
-              </ol>
-  
+        <ol type="1">      
+          <li>Copy the desired URL of the website you need to scrape </li>      
+          <li>Go to Image Harvest</li>      
+          <li>Enter the URL</li>
+          <li>Enter Max Image to scrape:</li>
+          <li>Wait for the image to be downloaded</li>
+          <li>Images are downloaded into their respective folders</li> 
+        </ol>
+      </div>
+    </div>
+  </div>
   <script src="index.js"></script>
 </body>
 </html>
