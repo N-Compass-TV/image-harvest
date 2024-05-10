@@ -28,45 +28,52 @@
     border: none;
   }
 
-  .main {
-    padding: 50px 0;
-  }
+.main {  
+  padding: 50px 0;  
+}
+  
+.title {  
+  font-size: 1.75rem;
+  color: var(--darkblue); 
+  font-weight: 400;
+}
 
-  .title {
-    font-size: 1.75rem;
-    color: var(--darkblue);
-    font-weight: 400;
-  }
+  
+.createdBy-img {
+  padding-block: 15px;
+  padding-right: 10px;
+}
+  
+.createdBy-img img {
+  width: 35px;
+  border-radius: 50px;
+}
 
-  .createdBy-img {
-    padding-block: 15px;
-    padding-right: 10px;
-  }
+.second-img {
+  margin-left: -10px;
+}
 
-  .createdBy-img img {
-    width: 35px;
-    border-radius: 50px;
-  }
+.createdBy-text {
+  font-size: 0.75rem;
+  color: #6b778c;
+  font-weight: 400;
+}
 
-  .second-img {
-    margin-left: -10px;
-  }
-
-  .createdBy-text {
-    font-size: 0.75rem;
-    color: #6b778c;
-    font-weight: 400;
-  }
-
-  .step--number-all {
-    font-size: 1.13rem;
-    color: var(--darkblue);
-    line-height: 22px;
-    font-weight: 600;
-  }
+.step--number-all {
+  font-size: 1.13rem; 
+  color: var(--darkblue); 
+  line-height: 55px;   
+  font-weight: 600;
+}
 
 li {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.line {
+  border-top: 2px solid var(--gray);
+  height: 10px;
+  margin-block: 20px;
 }
 
   /* Code Design */
@@ -126,8 +133,7 @@ li {
 
   /* Images */
   .img-all {
-    margin-top: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   code {
