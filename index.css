@@ -45,7 +45,7 @@
 
   .createdBy-img img {
     width: 35px;
-    border-radius: 100px;
+    border-radius: 50px;
   }
 
   .second-img {
@@ -126,7 +126,8 @@ li {
 
   /* Images */
   .img-all {
-    max-width: 370px;
+    margin-top: 8px;
+    margin-bottom: 10px;
   }
 
   code {
