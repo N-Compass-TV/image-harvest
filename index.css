@@ -32,19 +32,6 @@
     padding: 50px 0;
   }
 
-  .line {
-    border-top: 2px solid var(--gray);
-    height: 10px;
-    margin-block: 20px;
-  }
-
-  .note {
-    font-style: italic;
-    color: var(--orange);
-    font-size: 1rem;
-    padding-block: 10px;
-  }
-
   .title {
     font-size: 1.75rem;
     color: var(--darkblue);
@@ -78,6 +65,10 @@
     font-weight: 600;
   }
 
+li {
+    margin-bottom: 5px;
+}
+
   /* Code Design */
   .code {
     position: relative;
@@ -86,22 +77,6 @@
     align-items: center;
     height: 50px;
     overflow: auto;
-  }
-
-  .nested-code-con {
-    position: relative;
-  }
-
-  .nested-code {
-    background: var(--lightGray);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 90px;
-  }
-
-  .nested-code-con:hover .clipboard {
-    display: block;
   }
 
   .code:hover .clipboard {
